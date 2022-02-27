@@ -33,12 +33,12 @@
     </delete>
 
     <!--查找楼栋单元号-->
-    <select id="selB" parameterType="GmdRoom" resultType="GmdRoom">
+    <select id="selB" parameterType="GmdRoom" resultType="com.zhumeijia.wuye.entity.GmdRoom">
         select * from building where buildingStatus=0
 
     </select>
     <!--通过楼层查找楼层总数-->
-    <select id="selBs" resultType="GmdRoom">
+    <select id="selBs" resultType="com.zhumeijia.wuye.entity.GmdRoom">
         select loucengCount from building where buildingID=#{buildingid}
     </select>
 
@@ -59,7 +59,7 @@
     </insert>
 
     <!--修改时查询-->
-    <select id="upSelRoom" parameterType="GmdRoom" resultType="GmdRoom">
+    <select id="upSelRoom" parameterType="GmdRoom" resultType="com.zhumeijia.wuye.entity.GmdRoom">
         select * from room r LEFT JOIN louceng c on r.loucengID=c.loucengID
       left JOIN building b on b.buildingid=c.buildingid where r.roomid=#{roomid}
     </select>
@@ -76,7 +76,7 @@
     </update>
 
     <!--添加时查询的单元号和楼层号-->
-    <select id="addSellr" parameterType="GmdRoom" resultType="GmdRoom">
+    <select id="addSellr" parameterType="GmdRoom" resultType="com.zhumeijia.wuye.entity.GmdRoom">
           select * from room r left JOIN clientMessage c on r.clientMessageId=c.clientMessageId
         left join louceng l on r.loucengID = l.loucengID
         left join building b on l.buildingID = b.buildingID
@@ -86,7 +86,7 @@
     </select>
 
     <!--添加时查询客户姓名-->
-    <select id="addSelc" parameterType="GmdRoom" resultType="GmdRoom">
+    <select id="addSelc" parameterType="GmdRoom" resultType="com.zhumeijia.wuye.entity.GmdRoom">
         select clientname,clientMessageId from clientMessage
     </select>
 
@@ -94,5 +94,7 @@
     <update id="addBtnroom" parameterType="GmdRoom">
         update room set houseState=1,clientMessageId=#{clientmessageid} where roomid=#{roomid}
     </update>
+    <update id="upSelly" parameterType="com.zhumeijia.wuye.entity.GmdRoom"></update>
+    <update id="upRlc" parameterType="com.zhumeijia.wuye.entity.GmdRoom"></update>
 
 </mapper>

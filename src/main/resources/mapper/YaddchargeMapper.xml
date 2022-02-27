@@ -4,6 +4,9 @@
           <update id="updatecharge" parameterType="Arrearage">
                 update bill set assessment=0 where roomID=(select roomid from room where roomNo=#{roomno})AND payproject=#{payproject}
           </update>
+    <delete id="selroomid" parameterType="java.lang.String">
+        delete from bill where roomID = #{roomId}
+    </delete>
     <insert id="addcharge" parameterType="Ycharge">
         insert into feecontent(clientMessageId,assessment,collectDate,tollgatherer,paymentType) VALUES((select clientMessageId from clientmessage where clientname=#{clientname}),#{assessment},now(),#{tollgatherer},#{paymenttype})
     </insert>

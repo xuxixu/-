@@ -3,7 +3,7 @@ package com.zhumeijia.wuye.entity;
 import java.util.Date;
 
 
-public class goodstype {
+public class Goodstype {
     private int goodstypeid;
     private String name;
     private Date createtime;

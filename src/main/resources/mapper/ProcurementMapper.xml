@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhumeijia.wuye.mapper.ProcurementMapper">
+
+    <resultMap id="BaseResultMap" type="com.zhumeijia.wuye.entity.Procurement">
+            <id property="id" column="id" jdbcType="INTEGER"/>
+            <result property="number" column="number" jdbcType="INTEGER"/>
+            <result property="gtid" column="gtid" jdbcType="INTEGER"/>
+            <result property="whid" column="whid" jdbcType="INTEGER"/>
+            <result property="createtime" column="createtime" jdbcType="TIMESTAMP"/>
+            <result property="uid" column="uid" jdbcType="VARCHAR"/>
+            <result property="apid" column="apid" jdbcType="INTEGER"/>
+            <result property="totalmoney" column="totalmoney" jdbcType="DOUBLE"/>
+            <result property="remark" column="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+        <insert id="addProcurement" parameterType="com.zhumeijia.wuye.entity.Procurement">
+            insert into procurement(id,number,gtid,whid,createtime,uid,apid,totalmoney,remark) values (null,#{number},#{gid},#{whid},#{createtime},#{uid},0,#{totalmoney},#{remark})
+        </insert>
+    <update id="updateProcurement" parameterType="com.zhumeijia.wuye.entity.Procurement">
+        update procurement
+            <set>
+                <if test="number != 0">
+                    number = #{number}
+                </if>
+                <if test="gtid != 0">
+                    , gtid = #{gtid}
+                </if>
+                <if test="whid != 0">
+                    , whid = #{whid}
+                </if>
+                <if test="apid != 0">
+                    , apid = #{apid}
+                </if>
+                <if test="totalmoney != 0">
+                    , totalmoney = #{totalmoney}
+                </if>
+                <if test="remark != 0 and remark !=''">
+                    , remark = #{remark}
+                </if>
+            </set>
+        where id = #{id}
+    </update>
+    <select id="findAll" resultType="java.util.Map" parameterType="java.util.Map">
+        select * from procurement
+        <where>
+            1=1
+            <if test="number != 0">
+                and number = #{number}
+            </if>
+            <if test="gtid != 0">
+                and gtid = #{gtid}
+            </if>
+            <if test="whid != 0">
+                and whid = #{whid}
+            </if>
+            <if test="uid != 0">
+                and uid = #{uid}
+            </if>
+            <if test="apid != 0">
+                and apid = #{apid}
+            </if>
+            <if test="totalmoney != 0">
+                and totalmoney = #{totalmoney}
+            </if>
+        </where>
+        LIMIT #{begin},#{end}
+    </select>
+
+</mapper>

@@ -7,7 +7,6 @@
         select * from building
 
         <where>
-
             <if test="buildingname!=null and buildingname!=''">
                 and buildingname like concat('%',concat(#{buildingname},'%'))
             </if>
@@ -40,7 +39,7 @@
     select count(buildingName) from building where buildingName=#{buildingname}
     </select>
 <!--修改时查询-->
-    <select id="selbuildingid" parameterType="GmdLou" resultType="GmdLou">
+    <select id="selbuildingid" parameterType="GmdLou" resultType="com.zhumeijia.wuye.entity.GmdLou">
            select * from building where buildingID=#{buildingid}
 
     </select>

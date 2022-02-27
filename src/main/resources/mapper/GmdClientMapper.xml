@@ -25,7 +25,7 @@
 
     </select>
     <!--查询教育程度-->
-    <select id="seleducation" parameterType="GmdClient" resultType="GmdClient">
+    <select id="seleducation" parameterType="GmdClient" resultType="com.zhumeijia.wuye.entity.GmdClient">
         select * from educations
     </select>
         <!--添加银行信息-->
@@ -56,7 +56,7 @@
     </update>
 
     <!--修改时通过id查询信息-->
-        <select id="selUpClient" parameterType="int" resultType="GmdClient">
+        <select id="selUpClient" parameterType="int" resultType="com.zhumeijia.wuye.entity.GmdClient">
              select * from clientMessage c left join educations e on c.educationID=e.educationID
         left join relationmessages r on c.clientMessageId=r.clientMessageId
         left join bank b on c.bankId=b.bankId where c.clientMessageId=#{clientmessageid}
@@ -70,7 +70,7 @@
 
     </update>
     <!--根据id查询银行信息-->
-    <select id="selBank" parameterType="GmdClient" resultType="GmdClient">
+    <select id="selBank" parameterType="GmdClient" resultType="com.zhumeijia.wuye.entity.GmdClient">
         select * from bank
     </select>
     <!--通过id修改紧急联系人-->

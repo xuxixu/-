@@ -28,15 +28,15 @@
     </update>
 
     <!--查询仪表信息-->
-    <select id="selMetert" parameterType="GmdPay" resultType="GmdPay">
+    <select id="selMetert" parameterType="GmdPay" resultType="com.zhumeijia.wuye.entity.GmdPay">
         select * from meterT
     </select>
     <!--查询项目类型信息-->
-    <select id="selPayitemst" parameterType="GmdPay" resultType="GmdPay">
+    <select id="selPayitemst" parameterType="GmdPay" resultType="com.zhumeijia.wuye.entity.GmdPay">
         select * from payitemst
     </select>
     <!--查询标准方案信息-->
-    <select id="selItems" parameterType="GmdPay" resultType="GmdPay">
+    <select id="selItems" parameterType="GmdPay" resultType="com.zhumeijia.wuye.entity.GmdPay">
         select * from items
     </select>
     <!--添加方案信息表-->
@@ -45,7 +45,7 @@
         (#{patitemsname},#{metertid},#{payitemstid},#{payitemsmoney},#{begintime},#{itemsid},0);
     </insert>
     <!--修改时查询-->
-    <select id="selUp" parameterType="GmdPay" resultType="GmdPay">
+    <select id="selUp" parameterType="GmdPay" resultType="com.zhumeijia.wuye.entity.GmdPay">
         select * from payitems p left join metert m on p.metertID=m.metertID
         left join payitemst pt on p.payitemstId=pt.payitemstId
         left join  items i on i.itemsid=p.itemsid where payitemsId=#{payitemsid}

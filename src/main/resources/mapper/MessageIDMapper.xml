@@ -2,13 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhumeijia.wuye.mapper.MessageIDMapper">
 
-    <select id="selMessageID" parameterType="Integer" resultType="RoomType">
+    <select id="selMessageID" parameterType="Integer" resultType="com.zhumeijia.wuye.entity.RoomType">
           select clientmessageId from room where roomID=#{roomID}
     </select>
-    <select id="selclientName" parameterType="Integer" resultType="RoomType">
+    <select id="selclientName" parameterType="Integer" resultType="com.zhumeijia.wuye.entity.RoomType">
           select clientName from clientmessage where clientmessageId=#{clientmessageId}
     </select>
-    <select id="selectMax" parameterType="Integer" resultType="RoomType">
+    <select id="selectMax" parameterType="Integer" resultType="com.zhumeijia.wuye.entity.RoomType">
           select practical from bill where roomID=#{roomID}
     </select>
 </mapper>

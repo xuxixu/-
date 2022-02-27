@@ -9,7 +9,15 @@ public class Adoption {
   private long number;
   private java.sql.Timestamp createtime;
   private String remark;
+  private int apid;
 
+  public int getApid() {
+    return apid;
+  }
+
+  public void setApid(int apid) {
+    this.apid = apid;
+  }
 
   public long getId() {
     return id;

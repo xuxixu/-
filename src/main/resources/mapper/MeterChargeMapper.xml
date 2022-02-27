@@ -38,4 +38,7 @@
     <update id="update_false" parameterType="int">
          update meter set meterReadStatus='false' where meterID=#{meterID}
     </update>
+    <update id="updateReAudit_do" parameterType="java.lang.Integer">
+        update meter set meterID = #{meterID}
+    </update>
 </mapper>

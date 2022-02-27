@@ -30,7 +30,7 @@
          update carport set cartportStatus=0 where carportid=#{carportid}
     </update>
     <!--查询车位类型表-->
-    <select id="selCarportT" parameterType="GmdCar" resultType="GmdCar">
+    <select id="selCarportT" parameterType="GmdCar" resultType="com.zhumeijia.wuye.entity.GmdCar">
             select * from carportT
     </select>
 
@@ -42,7 +42,7 @@
             select count(carportNo) from carport where carportNo=#{carportno}
     </select>
     <!--修改时查询-->
-    <select id="selcUp" parameterType="int" resultType="GmdCar">
+    <select id="selcUp" parameterType="int" resultType="com.zhumeijia.wuye.entity.GmdCar">
         select * from carport where carportID=#{carportid}
     </select>
     <!--执行修改-->
@@ -51,19 +51,19 @@
 
     </update>
     <!--修改时查询-->
-    <select id="selBtncar" parameterType="int" resultType="GmdCar">
+    <select id="selBtncar" parameterType="int" resultType="com.zhumeijia.wuye.entity.GmdCar">
 
  select * from carport c left join clientMessage cm on c.carportID=cm.carportID LEFT JOIN room r ON
         r.clientMessageId=cm.clientMessageId where   c.carportID=#{carportid}
     </select>
 
     <!--查询房间-->
-    <select id="selRc" resultType="GmdCar">
+    <select id="selRc" resultType="com.zhumeijia.wuye.entity.GmdCar">
         select * from room  where houseState=1
     </select>
 
     <!--通过房间id查询客户-->
-    <select id="selC" parameterType="String" resultType="GmdCar">
+    <select id="selC" parameterType="String" resultType="com.zhumeijia.wuye.entity.GmdCar">
          select c.clientname from room r LEFT JOIN clientMessage c on c.clientMessageId=r.clientMessageId where r.roomno=#{roomno}
 
     </select>

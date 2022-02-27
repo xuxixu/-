@@ -23,7 +23,7 @@ lastIndex,atIndex,utility,meterReadType,meterReadStatus,auditStatus,meterReadDat
 values(#{precinct},#{homeNO},#{meterNO},#{clientName},#{payitemsId},#{meterReadTime},#{meterReadEndTime},#{lastIndex}
 ,#{atIndex},#{utility},#{meterReadType},'true',0,#{meterReadDate},#{meterReader},#{remark},#{payitemstId})
    </insert>
-    <select id="selectMetersById" parameterType="int" resultType="Meter">
+    <select id="selectMetersById" parameterType="int" resultType="com.zhumeijia.wuye.entity.Meter">
        select m.*,r.roomNO from meter m,room r  where meterID=#{meterID} and m.homeNO=r.roomID
     </select>
     <update id="update_do" parameterType="Meter">
