@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhumeijia.wuye.mapper.WarehouseMapper">
+
+    <resultMap id="BaseResultMap" type="com.zhumeijia.wuye.entity.Warehouse">
+            <id property="warehouseid" column="warehouseid" jdbcType="INTEGER"/>
+            <result property="warehousename" column="warehousename" jdbcType="VARCHAR"/>
+            <result property="createtime" column="createtime" jdbcType="TIMESTAMP"/>
+            <result property="local" column="local" jdbcType="VARCHAR"/>
+            <result property="uid" column="uid" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        warehouseid,warehousename,createtime,
+        local,uid
+    </sql>
+</mapper>
