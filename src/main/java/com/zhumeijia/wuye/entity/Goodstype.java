@@ -1,9 +1,14 @@
 package com.zhumeijia.wuye.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.util.Date;
 
-
+@TableName("goodstype")
 public class Goodstype {
+    @TableId(value = "id",type = IdType.AUTO)//在自增主键的变量加上即可
     private int goodstypeid;
     private String name;
     private Date createtime;

@@ -1,8 +1,14 @@
 package com.zhumeijia.wuye.entity;
 
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
+@TableName("goods")
 public class Goods {
 
+  @TableId(value = "id",type = IdType.AUTO)//在自增主键的变量加上即可
   private long goodsid;
   private String goodsname;
   private long number;

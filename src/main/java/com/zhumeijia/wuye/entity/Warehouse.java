@@ -1,5 +1,9 @@
 package com.zhumeijia.wuye.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,10 +11,12 @@ import java.util.Date;
  * 
  * @TableName warehouse
  */
+@TableName("warehouse")
 public class Warehouse implements Serializable {
     /**
      * 
      */
+    @TableId(value = "id",type = IdType.AUTO)//在自增主键的变量加上即可
     private Integer warehouseid;
 
     /**
